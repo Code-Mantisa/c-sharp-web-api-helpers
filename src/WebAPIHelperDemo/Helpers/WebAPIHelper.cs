@@ -9,14 +9,15 @@ namespace WebAPIHelperDemo.Helpers
     {
         private APIResponse apiResponse;
 
+        /// <summary>
+        /// Creates a error or successful response based on the data to be sent
+        /// </summary>
+        /// <param name="request">The http request</param>
+        /// <param name="data">The data to be sent</param>
+        /// <returns>The http response</returns>
         public HttpResponseMessage CreateResponse(HttpRequestMessage request, object data)
         {
-            if (data == null)
-            {
-                apiResponse = new APIResponse(null, "Oops! An Error occured.", true);
-                return request.CreateResponse(HttpStatusCode.InternalServerError, apiResponse);
-            }
-            else if (data is bool && Convert.ToBoolean(data) == false)
+            if (data == null || (data is bool && Convert.ToBoolean(data) == false))
             {
                 apiResponse = new APIResponse(null, "Oops! An Error occured.", true);
                 return request.CreateResponse(HttpStatusCode.InternalServerError, apiResponse);
@@ -34,12 +35,25 @@ namespace WebAPIHelperDemo.Helpers
             }
         }
 
-        public HttpResponseMessage CreateErrorResponse(HttpRequestMessage request, string errorText)
+        /// <summary>
+        /// Creates an error response with a 500 status code(Internal Server error)
+        /// </summary>
+        /// <param name="request">The http request</param>
+        /// <param name="errorText">Error message to be sent</param>
+        /// <param name="data">Any data to be sent</param>
+        /// <returns>The http response</returns>
+        public HttpResponseMessage CreateErrorResponse(HttpRequestMessage request, string errorText, string data = null)
         {
-            apiResponse = new APIResponse(null, errorText, true);
+            apiResponse = new APIResponse(data, errorText, true);
             return request.CreateResponse(HttpStatusCode.InternalServerError, apiResponse);
         }
 
+        /// <summary>
+        /// Creates a http response with 400 status code(Bad Request)
+        /// </summary>
+        /// <param name="request">The http request</param>
+        /// <param name="errorText">Error message to be sent</param>
+        /// <returns>The http response</returns>
         public HttpResponseMessage CreateBadRequest(HttpRequestMessage request, string errorText)
         {
             apiResponse = new APIResponse(null, errorText, true);
