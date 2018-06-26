@@ -42,7 +42,7 @@ namespace WebAPIHelperDemo.Helpers
         /// <param name="errorText">Error message to be sent</param>
         /// <param name="data">Any data to be sent</param>
         /// <returns>The http response</returns>
-        public HttpResponseMessage CreateErrorResponse(HttpRequestMessage request, string errorText, string data = null)
+        public HttpResponseMessage CreateErrorResponse(HttpRequestMessage request, string errorText, object data = null)
         {
             apiResponse = new APIResponse(data, errorText, true);
             return request.CreateResponse(HttpStatusCode.InternalServerError, apiResponse);
