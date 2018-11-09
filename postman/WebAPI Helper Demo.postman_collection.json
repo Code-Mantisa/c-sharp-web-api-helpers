@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "96c2e674-99fd-480f-ac9b-2c6de90e67ff",
+		"name": "WebAPI Helper Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "404 Error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{student api}}/result?studentId=1155223344",
+					"host": [
+						"{{student api}}"
+					],
+					"path": [
+						"result"
+					],
+					"query": [
+						{
+							"key": "studentId",
+							"value": "1155223344"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BadRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{student api}}/result?studentId=-1",
+					"host": [
+						"{{student api}}"
+					],
+					"path": [
+						"result"
+					],
+					"query": [
+						{
+							"key": "studentId",
+							"value": "-1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sucess ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{student api}}/result?studentId=5",
+					"host": [
+						"{{student api}}"
+					],
+					"path": [
+						"result"
+					],
+					"query": [
+						{
+							"key": "studentId",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ee26afaa-c2cb-4e12-9d54-c4bdec5f04a6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e4c8bc8b-1da7-4ce7-b028-ea041a192a91",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "c7a4994f-27f9-4804-a32e-11bb347622c6",
+			"key": "student api",
+			"value": "http://localhost:56101/api/student",
+			"type": "string"
+		}
+	]
+}
