@@ -17,14 +17,17 @@ trigger:
     - LICENSE
     - CHANGELOG.md
 
+# Ref: https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/pools-queues
 pool:
   vmImage: 'VS2017-Win2016'
 
+# Ref: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+# Ref: https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/?view=vsts
 steps:
 - task: NuGetToolInstaller@0
 
