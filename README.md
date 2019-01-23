@@ -1,4 +1,7 @@
 # C# web-api helpers
+
+[![Build Status](https://dev.azure.com/kolappannathan/c-sharp-web-api-helpers/_apis/build/status/kolappannathan.c-sharp-web-api-helpers?branchName=master)](https://dev.azure.com/kolappannathan/c-sharp-web-api-helpers/_build/latest?definitionId=5?branchName=master)
+
 This is demo project on using a helper class in a C# Web API project.
 
 Project URL: https://kolappannathan.github.io/projects/c-sharp-web-api-helper/index.html
